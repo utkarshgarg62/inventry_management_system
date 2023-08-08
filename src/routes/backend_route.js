@@ -5,8 +5,7 @@ const {
   abc
 } = require('../controllers/abc');
 
-router.get('', abc);
-
+// router.get('', abc);
 
 
 router.get('*', async function (req, res) {

@@ -11,9 +11,19 @@ async function current_Date_Time() {
 
 /** Frontend Routes */
 
-router.get('/emp/login', function (req, res) {
-  res.render('Login', {
+router.get('/', function (req, res) {
+  res.render('homepage', {
+    title: 'Homepage',
+  });
+});
+router.get('/login', function (req, res) {
+  res.render('login', {
     title: 'Login',
+  });
+});
+router.get('/add-product', function (req, res) {
+  res.render('add_product', {
+    title: 'Add Product',
   });
 });
 

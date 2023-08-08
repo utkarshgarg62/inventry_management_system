@@ -17,7 +17,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 
 mongoose
   .connect(
-    '', /** cluster url */
+    'mongodb+srv://dharamutkarshgarg:wjA5fzpz22YziVZ6@cluster.bnhm0hz.mongodb.net/_inventry', /** cluster url */
     {
       useNewUrlParser: true,
     }
