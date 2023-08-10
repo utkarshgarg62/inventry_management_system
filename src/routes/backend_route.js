@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const productController = require("../controllers/productController")
 
-const {
-  abc
-} = require('../controllers/abc');
-
-// router.get('', abc);
-
+router.post('/products', productController.createProduct);
+router.get('/products', productController.getProduct);
+router.put('/products/:productId', productController.updateProduct);
+router.delete('/products/:productId', productController.deleteProduct);
 
 router.get('*', async function (req, res) {
   res.render('404-Error', {
