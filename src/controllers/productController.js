@@ -18,7 +18,6 @@ const getProduct = async function (req, res) {
 }
 
 const updateProduct = async function (req, res) {
-
     let productId = req.params.productId
     let checkproduct = await productModel.findById({ _id: productId })
     if (!checkproduct) { return res.status(404).send({ status: false, message: "product not found" }) }
@@ -28,18 +27,12 @@ const updateProduct = async function (req, res) {
 }
 
 const deleteProduct = async function (req, res) {
-    try {
         let ProductId = req.params.productId
         let date = new Date()
-
         let Product = await productModel.findOne({ _id: ProductId, isDeleted: false })
         if (!Product) { return res.status(404).send({ status: false, message: "Product not exist in DB" }) }
         let check = await productModel.findOneAndUpdate({ _id: ProductId }, { isDeleted: true, deletedAt: date }, { new: true })
         return res.status(200).send({ status: true, message: "success", data: check })
-
-    } catch (err) {
-        res.status(500).send({ status: false, message: err })
-    }
 }
 
 module.exports = { createProduct, getProduct, updateProduct ,deleteProduct}
